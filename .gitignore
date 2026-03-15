@@ -29,3 +29,6 @@ Thumbs.db
 # Environment / secrets
 .env
 *.log
+
+# Markdown
+intern-*.md
