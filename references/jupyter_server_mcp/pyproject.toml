@@ -1,0 +1,85 @@
+[build-system]
+requires = ["hatchling>=1.5"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jupyter_server_mcp"
+authors = [{name = "Jupyter Developer", email = "jupyter@example.com"}]
+dynamic = ["version"]
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["Jupyter", "Extension", "MCP", "FastMCP"]
+classifiers = [
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Framework :: Jupyter",
+]
+
+dependencies = [
+    "jupyter_server>=1.6,<3",
+    "fastmcp>=2.0.0"
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21.0", 
+    "pytest-jupyter[server]>=0.6",
+    "pytest-tornasync>=0.6.0",
+    "pytest-mock>=3.10.0"
+]
+dev = [
+    "ruff>=0.1.0"
+]
+
+[project.license]
+file="LICENSE"
+
+[project.entry-points."jupyter_server.extension_points"]
+jupyter_server_mcp = "jupyter_server_mcp.extension:MCPExtensionApp"
+
+[tool.hatch.version]
+path = "jupyter_server_mcp/__init__.py"
+
+[tool.hatch.build.targets.wheel.shared-data]
+"jupyter-config" = "etc/jupyter"
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+extend-select = [
+    "B",   # flake8-bugbear
+    "I",   # isort
+    "ARG", # flake8-unused-arguments
+    "C4",  # flake8-comprehensions
+    "EM",  # flake8-errmsg
+    "ICN", # flake8-import-conventions
+    "ISC", # flake8-implicit-str-concat
+    "PGH", # pygrep-hooks
+    "PIE", # flake8-pie
+    "PL",  # pylint
+    "PT",  # flake8-pytest-style
+    "PTH", # flake8-use-pathlib
+    "RET", # flake8-return
+    "RUF", # Ruff-specific
+    "SIM", # flake8-simplify
+    "T20", # flake8-print
+    "UP",  # pyupgrade
+    "YTT", # flake8-2020
+    "EXE", # flake8-executable
+]
+ignore = [
+    "PLR",    # Design related pylint codes
+    "ISC001", # Conflicts with formatter
+]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["T20"]

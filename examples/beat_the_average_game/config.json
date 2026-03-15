@@ -1,0 +1,25 @@
+{
+  "notebook_path": "notebook.ipynb",
+  "working_dir": ".",
+  "kernel_name": "python3",
+
+  "llm_provider": "openai_compatible",
+  "llm_model": "gemini-2.5-pro",
+  "llm_base_url": "https://generativelanguage.googleapis.com/v1beta/openai/",
+  "llm_max_tokens": 16384,
+  "llm_thinking_budget": 0,
+
+  "max_rounds": 30,
+  "max_sessions": 1,
+  "rounds_per_session": 0,
+  "max_tool_calls_per_round": 30,
+
+  "unfold_last_n": 4,
+  "max_output_lines": 40,
+  "default_timeout": 180,
+
+  "evaluator_module": "evaluator_adapter.py",
+  "evaluator_paths": ["evaluator.py", "evaluator_adapter.py"],
+  "checkpoint_dir": ".checkpoints",
+  "auto_save": true
+}

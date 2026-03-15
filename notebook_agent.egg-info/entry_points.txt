@@ -1,0 +1,2 @@
+[console_scripts]
+notebook-agent = notebook_agent.cli:main
