@@ -5,7 +5,13 @@ Jupyter notebook as their working state. The notebook is not just an interface:
 it is the agent's memory, executable environment, and evolving problem-solving
 trajectory.
 
-This repository was developed as a course project for **EE290/194: Scalable AI**.
+This repository was developed as a course project for
+[**EE290/194: Scalable AI**](https://scalable-ai.eecs.berkeley.edu/).
+
+Project links:
+
+- Blog: https://hengyuf.github.io/notevolve-blog/
+- Course website: https://scalable-ai.eecs.berkeley.edu/
 
 The current package is installed as `notebook-agent` and exposes a CLI for
 running an agent over a live `.ipynb` file. The agent can write code cells, run
